@@ -14,18 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import {TemplateView} from "../../../general/TemplateView";
+import {BaseTileView} from "./BaseTileView";
 
-export class AnnouncementView extends TemplateView {
-    // ignore other arguments
-    constructor(vm) {
-        super(vm);
+export class AnnouncementView extends BaseTileView {
+    renderTile(t, vm) {
+        return t.div({className: "AnnouncementView"}, t.div(vm => vm.announcement));
     }
-
-    render(t) {
-        return t.li({className: "AnnouncementView"}, t.div(vm => vm.announcement));
-    }
-    
-    /* This is called by the parent ListView, which just has 1 listener for the whole list */
-    onClick() {}
 }
